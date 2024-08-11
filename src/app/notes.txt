@@ -1,0 +1,3 @@
+#interpolation {{class member}}
+#property binding [src]="class member"
+#event binding (click)="class method"
