@@ -1,3 +1,15 @@
 #interpolation {{class member}}
 #property binding [src]="class member"
 #event binding (click)="class method"
+#two way binding [(ngModel)]
+#json server
+{
+    npm init =>package.json
+    npm i json-server=>node_modules
+    db.json=>data file
+    json-server --watch db.json
+}
+#routing
+#interface Model
+#servics
+#Observable emmit list of values 
