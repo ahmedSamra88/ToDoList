@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { ToDoComponent } from "./components/to-do/to-do.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { FooterComponent } from "./components/footer/footer.component";
     RouterOutlet,
     ToDoComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FontAwesomeModule
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

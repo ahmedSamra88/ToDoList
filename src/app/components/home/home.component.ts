@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDo } from '../../models/to-do';
 import { ToDoService } from '../../services/to-do.service';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    NgIf,FormsModule
+    NgIf,FormsModule,RouterLink,NgClass,FontAwesomeModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -16,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 export class HomeComponent implements OnInit{
   title:string="To Do List App";
   imgSrc:string = "../../assets/home.jpg";
+  faCoffee:any= faCoffee;
   toDoList:ToDo[]=[];
   toDo:ToDo={} as ToDo;
   constructor(private toDoService:ToDoService){}
@@ -33,9 +37,13 @@ export class HomeComponent implements OnInit{
       this.toDoList.push(task);
     })
   }
-  DeleteTask(id:number){
+  DeleteTask(id:string){
     this.toDoService.DeleteTodo(id).subscribe(()=>{
       this.toDoList=this.toDoList.filter(todo=>todo.id!==id);
     })
+  }
+  ChangeState(task:ToDo):void{
+    task.completed=!task.completed;
+    this.toDoService.UpdateDetails(task).subscribe();
   }
 }

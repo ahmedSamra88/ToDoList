@@ -10,6 +10,15 @@
     json-server --watch db.json
 }
 #routing
+{
+    Routes = [{path:'',component:c_class,title:'page_title'},]
+    [routerLink]="['/link',params]"
+    routerLink="/link"
+    routerLinkActive="activeClass"
+    (route:ActivatedRoute,router:Router)
+
+}
 #interface Model
 #servics
 #Observable emmit list of values 
+#ngClass={class:t/f} , ngStyle={style:value}

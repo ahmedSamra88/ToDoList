@@ -1,6 +1,6 @@
 <div class="card p-5 mx-auto my-4 shadow">
     <h1 class="text-center text-primary">{{title}}</h1>
-    <img [src]="imgSrc" alt="" srcset="" width="300" height="300" class="img-fluid mx-auto d-block mb-3">
+    <div class="text-center"><fa-icon size="6x" [icon]="faCoffee"></fa-icon></div>
     <div >
         <div class="container">
             <div class="row">
@@ -16,10 +16,14 @@
                     <ul class="list-group">
                         @for (task of toDoList; track task.id) {
                         <li class="list-group-item">
-                          <input class="form-check-input me-1" [(ngModel)]="task.completed" type="checkbox" value="" id="{{task.id}}">
-                          <div class="d-flex justify-content-between align-items-center">
-                            <label  class="form-check-label" for="{{task.id}}">{{task.title}}</label>
-                            <button class="btn btn-danger mr-0" (click)="DeleteTask(task.id)">Delete</button>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="task-class">
+                                    <input (change)="ChangeState(task)" class="form-check-input me-1"  type="checkbox" value="" id="{{task.id}}">
+                                    <label [ngClass]="{'line-through': task.completed}" class="form-check-label" for="{{task.id}}">{{task.title}}</label>
+                                </div>
+                                <a [routerLink]="['/details', task.id]"
+                                routerLinkActive="router-link-active">details</a>
+                                <button class="btn btn-danger mr-0" (click)="DeleteTask(task.id)">Delete</button>
                           </div>
                         </li>
                         }

@@ -1,3 +1,10 @@
 .card{
     max-width: 700px;
 }
+.line-through{
+    text-decoration: line-through;
+    color: gray;
+}
+.task-class{
+    cursor: pointer;
+}

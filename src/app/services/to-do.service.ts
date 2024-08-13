@@ -16,13 +16,13 @@ export class ToDoService {
   CreateTodo(todo:ToDo):Observable<ToDo>{
     return this.httpClient.post<ToDo>(this.apiUrl,JSON.stringify(todo));
   }
-  GetDetails(id:number):Observable<ToDo>{
-    return this.httpClient.get<ToDo>(`${this.apiUrl}/${id}`);
+  GetDetails(id:string):Observable<ToDo>{
+    return this.httpClient.get<ToDo>(`${this.apiUrl}${id}`);
   }
   UpdateDetails(todo:ToDo):Observable<ToDo>{
-    return this.httpClient.put<ToDo>(`${this.apiUrl}/${todo.id}`,todo)
+    return this.httpClient.put<ToDo>(`${this.apiUrl}${todo.id}`,todo)
   }
-  DeleteTodo(id:number):Observable<void>{
+  DeleteTodo(id:string):Observable<void>{
     return this.httpClient.delete<void>(`${this.apiUrl}${id}`);
   }
 
